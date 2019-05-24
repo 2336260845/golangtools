@@ -8,28 +8,14 @@ package datastructure
 import "errors"
 
 var (
-	SliceUnsupportedType = errors.New("Unsupported type, Only supported []string, []int, []int64, []int32, []byte")
+	SliceUnsupportedType = errors.New("Unsupported type, Only supported []string, []int, []int64, []int32, []byte. ")
 )
 
+//************************************************slice操作********************************************************//
 
-//slice去重方法
-func SliceRemoveDup(slice interface{}) (reSilce []interface{}, err error) {
-	switch slice.(type) {
-	case []string:
-	case []int:
-	case []int64:
-	case []int32:
-	case []byte:
-	default:
-		return nil, SliceUnsupportedType
-	}
-	return nil, nil
-}
-
-//slice类型转换
-
+//-------------------------slice去重------------------------------------//
 //对于[]string类型去重
-func RemoveDupString(slice []string) (reSlice []string, err error) {
+func SliceRemoveDupString(slice []string) (reSlice []string, err error) {
 	m := make(map[string]struct{})
 	for _, v := range slice {
 		if _, ok := m[v]; !ok {
@@ -41,7 +27,7 @@ func RemoveDupString(slice []string) (reSlice []string, err error) {
 }
 
 //对于[]int类型去重
-func RemoveDupInt(slice []int) (reSlice []int, err error) {
+func SliceRemoveDupInt(slice []int) (reSlice []int, err error) {
 	m := make(map[int]struct{})
 	for _, v := range slice {
 		if _, ok := m[v]; !ok {
@@ -53,7 +39,7 @@ func RemoveDupInt(slice []int) (reSlice []int, err error) {
 }
 
 //对于[]int64类型去重
-func RemoveDupInt64(slice []int64) (reSlice []int64, err error) {
+func SliceRemoveDupInt64(slice []int64) (reSlice []int64, err error) {
 	m := make(map[int64]struct{})
 	for _, v := range slice {
 		if _, ok := m[v]; !ok {
@@ -65,7 +51,7 @@ func RemoveDupInt64(slice []int64) (reSlice []int64, err error) {
 }
 
 //对于[]int32类型去重
-func RemoveDupInt32(slice []int32) (reSlice []int32, err error) {
+func SliceRemoveDupInt32(slice []int32) (reSlice []int32, err error) {
 	m := make(map[int32]struct{})
 	for _, v := range slice {
 		if _, ok := m[v]; !ok {
@@ -77,7 +63,7 @@ func RemoveDupInt32(slice []int32) (reSlice []int32, err error) {
 }
 
 //对于[]byte类型去重
-func RemoveDupByte(slice []byte) (reSlice []byte, err error) {
+func SliceRemoveDupByte(slice []byte) (reSlice []byte, err error) {
 	m := make(map[byte]struct{})
 	for _, v := range slice {
 		if _, ok := m[v]; !ok {
@@ -85,5 +71,56 @@ func RemoveDupByte(slice []byte) (reSlice []byte, err error) {
 			reSlice = append(reSlice, v)
 		}
 	}
+	return
+}
+
+//-------------------------slice删除------------------------------------//
+
+var (
+	IndexOverflow = errors.New("Index is too small or too lager, this will cause array overflow. ")
+)
+//根据index删除
+func SliceDeleteStringEleByIndex(slice []string, index int) (reSlice []string, err error) {
+	if index < 0 || index > len(slice) {
+		err = IndexOverflow
+		return
+	}
+	reSlice = append(slice[:index], slice[index + 1:]...)
+	return
+}
+
+func SliceDeleteIntEleByIndex(slice []int, index int) (reSlice []int, err error) {
+	if index < 0 || index > len(slice) {
+		err = IndexOverflow
+		return
+	}
+	reSlice = append(slice[:index], slice[index + 1:]...)
+	return
+}
+
+func SliceDeleteInt64EleByIndex(slice []int64, index int) (reSlice []int64, err error) {
+	if index < 0 || index > len(slice) {
+		err = IndexOverflow
+		return
+	}
+	reSlice = append(slice[:index], slice[index + 1:]...)
+	return
+}
+
+func SliceDeleteInt32EleByIndex(slice []int32, index int) (reSlice []int32, err error) {
+	if index < 0 || index > len(slice) {
+		err = IndexOverflow
+		return
+	}
+	reSlice = append(slice[:index], slice[index + 1:]...)
+	return
+}
+
+func SliceDeleteByteEleByIndex(slice []byte, index int) (reSlice []byte, err error) {
+	if index < 0 || index > len(slice) {
+		err = IndexOverflow
+		return
+	}
+	reSlice = append(slice[:index], slice[index + 1:]...)
 	return
 }
