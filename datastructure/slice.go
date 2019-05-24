@@ -23,6 +23,7 @@ func SliceRemoveDup(slice interface{}) (reSilce []interface{}, err error) {
 	default:
 		return nil, SliceUnsupportedType
 	}
+	return nil, nil
 }
 
 //slice类型转换
