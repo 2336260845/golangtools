@@ -175,5 +175,6 @@ func TestSliceRemoveDupByte(t *testing.T) {
 }
 
 func TestSliceDeleteStringEleByIndex(t *testing.T) {
-	//reflect.DeepEqual()
+	s := []string{"mark", "marry", "apple"}
+
 }

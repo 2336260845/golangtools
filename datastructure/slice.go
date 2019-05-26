@@ -124,3 +124,6 @@ func SliceDeleteByteEleByIndex(slice []byte, index int) (reSlice []byte, err err
 	reSlice = append(slice[:index], slice[index + 1:]...)
 	return
 }
+
+//-------------------------slice判断是否相等------------------------------------//
+
