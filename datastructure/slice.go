@@ -81,7 +81,7 @@ var (
 )
 //根据index删除
 func SliceDeleteStringEleByIndex(slice []string, index int) (reSlice []string, err error) {
-	if index < 0 || index > len(slice) {
+	if index < 0 || index >= len(slice) {
 		err = IndexOverflow
 		return
 	}
@@ -90,7 +90,7 @@ func SliceDeleteStringEleByIndex(slice []string, index int) (reSlice []string, e
 }
 
 func SliceDeleteIntEleByIndex(slice []int, index int) (reSlice []int, err error) {
-	if index < 0 || index > len(slice) {
+	if index < 0 || index >= len(slice) {
 		err = IndexOverflow
 		return
 	}
@@ -99,7 +99,7 @@ func SliceDeleteIntEleByIndex(slice []int, index int) (reSlice []int, err error)
 }
 
 func SliceDeleteInt64EleByIndex(slice []int64, index int) (reSlice []int64, err error) {
-	if index < 0 || index > len(slice) {
+	if index < 0 || index >= len(slice) {
 		err = IndexOverflow
 		return
 	}
@@ -108,7 +108,7 @@ func SliceDeleteInt64EleByIndex(slice []int64, index int) (reSlice []int64, err 
 }
 
 func SliceDeleteInt32EleByIndex(slice []int32, index int) (reSlice []int32, err error) {
-	if index < 0 || index > len(slice) {
+	if index < 0 || index >= len(slice) {
 		err = IndexOverflow
 		return
 	}
@@ -117,7 +117,7 @@ func SliceDeleteInt32EleByIndex(slice []int32, index int) (reSlice []int32, err 
 }
 
 func SliceDeleteByteEleByIndex(slice []byte, index int) (reSlice []byte, err error) {
-	if index < 0 || index > len(slice) {
+	if index < 0 || index >= len(slice) {
 		err = IndexOverflow
 		return
 	}
