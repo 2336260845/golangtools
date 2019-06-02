@@ -3,6 +3,7 @@
 但是golang标准库中却没有实现的
 */
 
+
 package datastructure
 
 import "errors"
